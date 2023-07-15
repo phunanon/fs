@@ -1,0 +1,12 @@
+;Replaces spaces with escaped spaces
+(var escape (replace ' ' '\\ '))
+
+;Invokes a utility with one or many path arguments
+(function invoke util
+  (-> (skip 1 args) (map escape) (join " ") @(str util ' ') exec))
+
+;Cheap version of basename
+(var basename (comp (split '/') -1))
+
+(var ls (comp @(invoke 'ls') trim (split '\n')))
+(var mv @(invoke 'mv'))
