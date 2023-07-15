@@ -10,3 +10,4 @@
 
 (var ls (comp @(invoke 'ls') trim (split '\n')))
 (var mv @(invoke 'mv'))
+(var cp @(invoke 'cp'))
